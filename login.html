@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anand | Secure Login</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Poppins','Segoe UI',sans-serif;
+
+    background:
+      radial-gradient(circle at top left, #00b4d8, transparent 40%),
+      radial-gradient(circle at bottom right, #0077b6, transparent 40%),
+      linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.85)),
+      url("img3.jpg");
+    background-size:cover;
+    background-position:center;
+}
+
+/* LOGIN CARD */
+.login-card{
+    width:360px;
+    padding:35px 32px;
+    border-radius:26px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(18px);
+    box-shadow:
+      0 30px 60px rgba(0,0,0,0.7),
+      inset 0 0 0 1px rgba(255,255,255,0.15);
+    color:#fff;
+}
+
+/* TITLE */
+.login-card h2{
+    text-align:center;
+    margin-bottom:30px;
+    font-weight:600;
+    letter-spacing:1.5px;
+    color:#ade8f4;
+}
+
+/* INPUT GROUP */
+.group{
+    margin-bottom:22px;
+}
+
+.group label{
+    display:block;
+    font-size:13px;
+    letter-spacing:0.5px;
+    margin-bottom:6px;
+    color:#caf0f8;
+}
+
+.group input{
+    width:100%;
+    padding:14px 16px;
+    font-size:15px;
+    border:none;
+    border-radius:16px;
+    outline:none;
+    background:rgba(255,255,255,0.2);
+    color:#fff;
+    transition:0.3s;
+}
+
+.group input::placeholder{
+    color:rgba(255,255,255,0.6);
+}
+
+.group input:focus{
+    background:rgba(255,255,255,0.28);
+    box-shadow:0 0 0 2px rgba(72,202,228,0.5);
+}
+
+/* BUTTON */
+.login-btn{
+    margin-top:10px;
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:18px;
+    font-size:16px;
+    font-weight:600;
+    cursor:pointer;
+    color:#000;
+    background:linear-gradient(135deg, #48cae4, #90e0ef);
+    transition:0.35s;
+}
+
+.login-btn:hover{
+    transform:translateY(-2px) scale(1.03);
+    box-shadow:0 10px 30px rgba(72,202,228,0.6);
+}
+
+/* ERROR MESSAGE */
+.error{
+    margin-top:18px;
+    text-align:center;
+    color:#ff4d4d;
+    font-weight:700;
+    letter-spacing:0.5px;
+}
+
+/* FOOTER */
+.footer-text{
+    margin-top:20px;
+    text-align:center;
+    font-size:12px;
+    color:rgba(255,255,255,0.6);
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-card">
+    <h2>SECURE LOGIN</h2>
+
+    <form action="/login" method="post">
+        <div class="group">
+            <label>Username</label>
+            <input type="text" name="username" placeholder="Enter your username" required>
+        </div>
+
+        <div class="group">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Enter your password" required>
+        </div>
+
+        <button class="login-btn" type="submit">LOGIN</button>
+    </form>
+
+    {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+    {% endif %}
+
+    <div class="footer-text">
+        © 2026 Anand | Authorized Access Only
+    </div>
+</div>
+
+</body>
+</html>
